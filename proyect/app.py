@@ -81,7 +81,10 @@ def hola(id=None):
         regr = linear_model.LinearRegression()
         regr.fit(X_train, y_train)
         y_t = regr.predict([[30]])
-        mensaje = "Si sigues con este ritmo en 30 dias quemaras ", y_t[0], " Calorias"
+        if y_t > 0:
+            mensaje = y_t[0]
+        else:
+            mensaje = 0
         cursor.close()
     else:
         mensaje ="Necesita a ver registrado la rutina almenos de 10 veces"
